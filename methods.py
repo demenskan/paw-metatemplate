@@ -143,16 +143,16 @@ class Generator:
     def metavariables(self, stream, metavariables_path):
         from functools import reduce
         try:
-            var_positions = [i for i in range(len(stream)) if stream.startswith('{{VAR}}', i)]
+            var_positions = [i for i in range(len(stream)) if stream.startswith('{{METAVAR}}', i)]
             #position=1
             #for position in range(2):
             #return stream
             variable_with_marks=[]
             variable_content=[]
             for position in range(len(var_positions)):
-                vm1_1=stream.find('{{VAR}}',var_positions[position])
+                vm1_1=stream.find('{{METAVAR}}',var_positions[position])
                 vm1_2=vm1_1 + 7
-                vm2_1=stream.find('{{/VAR}}',var_positions[position])
+                vm2_1=stream.find('{{/METAVAR}}',var_positions[position])
                 vm2_2=vm2_1 + 8
                 variable_with_marks.append(stream[vm1_1:vm2_2])
                 variable_content.append(stream[vm1_2:vm2_1])
