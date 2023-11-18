@@ -151,9 +151,9 @@ class Generator:
             variable_content=[]
             for position in range(len(var_positions)):
                 vm1_1=stream.find('{{METAVAR}}',var_positions[position])
-                vm1_2=vm1_1 + 7
+                vm1_2=vm1_1 + 11
                 vm2_1=stream.find('{{/METAVAR}}',var_positions[position])
-                vm2_2=vm2_1 + 8
+                vm2_2=vm2_1 + 12
                 variable_with_marks.append(stream[vm1_1:vm2_2])
                 variable_content.append(stream[vm1_2:vm2_1])
 
