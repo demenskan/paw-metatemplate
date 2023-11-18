@@ -117,6 +117,9 @@ class Generator:
                     #Direct file
                     view_stream=self.read_file(config["TEMPLATES_FOLDER"] + config["CURRENT_TEMPLATE"] + instructions['sections'][key]['view_file'],"text")
                     layout_stream=layout_stream.replace("{{@" + key + "}}",view_stream)
+                # Global config - Replace config placeholders either on templates or content files with the format {{:<NAME>}} 
+                for key in config:
+                    layout_stream=layout_stream.replace("{{:" + str(key) + "}}", str(config[key]))
             return layout_stream
             #return a
         except Exception as e:
